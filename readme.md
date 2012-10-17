@@ -9,7 +9,7 @@ Just look at the examples:
 
 **Standard**
 
-```
+```coffeescript
 $('form').rvalidate
   'input[name=fname]':
     presence: true
