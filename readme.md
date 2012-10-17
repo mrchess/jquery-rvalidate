@@ -5,7 +5,16 @@ rValidate is an out of your way form validator. Just config with the inputs and 
 
 r is prefixed as the field validation naming conventions were inspired from the Rails page here: [http://bit.ly/QoCDcf](http://bit.ly/QoCDcf). 
 
-Just look at the examples:
+Core Methods
+---
+
+```coffeescript
+$('form').rvalidate(config) # initialize
+$('form').rvalidate() # returns []. [] is empty if valid and contains errors if not
+```
+
+Examples
+---
 
 **Standard**
 
