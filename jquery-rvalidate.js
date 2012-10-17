@@ -2,7 +2,7 @@
 
 /*
 jQuery rValidator Plugin 0.0.1
-http://github.com/mrchess/jquery-rvalidation
+http://github.com/mrchess/jquery-rvalidate
 Copyright (c) 2012 Justin Ho
 This is free. Do whatever.
 */
