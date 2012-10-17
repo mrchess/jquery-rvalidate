@@ -28,7 +28,7 @@ errors: {
 ```
 **Custom Error**
 
-```
+```coffeescript
 $('form').rvalidate
   'input[name=fname]':
     presence:
@@ -50,7 +50,7 @@ errors: {
 
 **Confirmation**
 
-```
+```coffeescript
 $('form').rvalidate
   'input[name=password]':
     confirmation:
@@ -72,7 +72,7 @@ errors: {
 
 **C-C-C-Combo**
 
-```
+```coffeescript
 $('form').rvalidate
   'input[name=fname]':
     presence:
@@ -106,8 +106,8 @@ errors: {
 
 **Production?**
 
-```
-// Same example in production (use your imagination).
+```coffeescript
+# Same example in production (use your imagination).
 errors = $('form').rvalidate()
 if !errors.length
   # Success!
@@ -123,7 +123,7 @@ You probably notice some validations are implicitly testing for presence (like e
 
 **presence**
 
-```
+```coffeescript
 $('form').rvalidate
   'input[name=foo]':
     presence: true
@@ -137,7 +137,7 @@ $('form').rvalidate
 
 **confirmation**
 
-```
+```coffeescript
 $('form').rvalidate
   'input[name=foo]':
     confirmation:
@@ -151,7 +151,7 @@ $('form').rvalidate
 ```
 **email**
 
-```
+```coffeescript
 $('form').rvalidate
   'input[name=foo]':
     email: true
@@ -165,7 +165,7 @@ $('form').rvalidate
 
 **length**
 
-```
+```coffeescript
 # Validate charcter length of exactly 5
 # I used "iz" becuase "is" highlights in CoffeeScript :P
 $('form').rvalidate
@@ -185,7 +185,7 @@ $('form').rvalidate
 
 **numericality**
 
-```
+```coffeescript
 $('form').rvalidate
   'input[name=foo]':
     numericality: true
