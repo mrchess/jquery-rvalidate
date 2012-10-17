@@ -1,8 +1,7 @@
 jQuery rValidate - Rails-esque form Validation
 ===
 
-
-rValidate is a out of your way form validator. Just config with the inputs and conditions, and rvalidate will tell you if it is valid or not. If it is valid it will return an empty `[]`, but if not, it it will return an array of the fields with error objects, then you can do whatever you want with those errors.
+rValidate is an out of your way form validator. Just config with the inputs and conditions, and rvalidate will tell you if it is valid or not. If it is valid it will return an empty `[]`, but if not, it it will return an array of the fields with error objects, then you can do whatever you want with those errors.
 
 r is prefixed as I inspired naming conventions from Rails page here [http://bit.ly/QoCDcf](http://bit.ly/QoCDcf). 
 
