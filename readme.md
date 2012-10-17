@@ -206,4 +206,7 @@ $('form').rvalidate
 
 Simple, and out of your way.
 
+![Tests](http://i.imgur.com/9DKbU.png)
+
 [@himrc](http://twitter.com/himrc)
+===

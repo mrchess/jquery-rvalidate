@@ -110,17 +110,6 @@ This is free. Do whatever.
             throw "Missing input to confirm with.";
           }
         }
-        email = validations.email;
-        if (email) {
-          if (email.regex) {
-            valid = new RegExp(email.regex).test(val);
-          } else {
-            valid = emailRegEx.test(val);
-          }
-          if (!valid) {
-            errors.push(email.invalid_email || error_defaults.invalid_email);
-          }
-        }
         if (errors.length) {
           o = {};
           o["" + selector] = errors;
