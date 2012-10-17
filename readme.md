@@ -128,7 +128,7 @@ Full List Of Supported Validations
 ---
 First example is the minimal usage if applicable. Second example is with customizations.  Default error messages are used unless a custom one is supplied. If you want to edit the default messages, it is at the top of the `jquery-rvalidate.js` file.
 
-You probably notice some validations are implicitly testing for presence (like e-mail, length, etc.) so using presence on those is optional. Only use it if you want a custom presence message and an additional error, as presence is the first validation that gets checked.
+You probably notice some validations are implicitly testing for presence (like e-mail, length, etc.) so using presence on those is optional. The benefit of still using presence is that it will include an additional "presence" error, and the presence error is always first in the returned error array.
 
 **presence**
 
