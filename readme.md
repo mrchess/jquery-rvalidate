@@ -167,6 +167,7 @@ $('form').rvalidate
   'input[name=foo]':
     email: true
 
+# rvalidate supplies a default e-mail regex, but you can swap it out.
 $('form').rvalidate
   'input[name=foo]':
     email:
