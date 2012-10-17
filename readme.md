@@ -121,7 +121,7 @@ errors = $('form').rvalidate()
 if !errors.length
   # Success!
 else
-  # Error! display the errors somewhere… I'll figure it out on my own.
+  # Error! rvalidate gives you the errors but it is up to you how to display them.
 ```
 
 Full List Of Supported Validations
