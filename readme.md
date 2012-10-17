@@ -5,7 +5,7 @@ rValidate is an out of your way form validator. Just config with the inputs and 
 
 r is prefixed as the field validation naming conventions were inspired from the Rails page here: [http://bit.ly/QoCDcf](http://bit.ly/QoCDcf). 
 
-This plugin is only **1.32KB (657 bytes gzipped)**.
+I will be building more functionality into this plugin as I continue to use it.
 
 Core Methods
 ---
