@@ -205,3 +205,5 @@ $('form').rvalidate
 ```
 
 Simple, and out of your way.
+
+[@himrc](http://twitter.com/himrc)
