@@ -1,5 +1,5 @@
 ###
-jQuery rValidator Plugin 0.0.1
+jQuery rValidator Plugin 0.0.2
 http://github.com/mrchess/jquery-rvalidate
 Copyright (c) 2012 Justin Ho
 This is free. Do whatever.
@@ -20,6 +20,8 @@ error_defaults =
   too_long: "Value is too long."
   wrong_length: "Value is wrong length."
   not_confirmed: "Values do not match."
+  not_regex: "Value is not valid."
+  not_custom_fn: "Value is not valid."
 
 
 $.fn.rvalidate = (config) ->
@@ -96,6 +98,21 @@ $.fn.rvalidate = (config) ->
             errors.push(confirmation.not_confirmed || error_defaults.not_confirmed)
         else
           throw "Missing input to confirm with."
+
+      # validate regex
+      custom_regex = validations.custom_regex
+      if custom_regex
+        valid = new RegExp(custom_regex.regex).test(val)
+        if !valid
+          errors.push(custom_regex.not_regex || error_defaults.not_regex)
+
+
+      # validate custom fn
+      custom_fn = validations.custom_fn
+      if custom_fn
+        valid = custom_fn.fn(val)
+        if !valid
+          errors.push(custom_fn.not_custom_fn || error_defaults.not_custom_fn)
 
       # done validating
       if errors.length

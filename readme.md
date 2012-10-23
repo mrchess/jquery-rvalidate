@@ -37,6 +37,7 @@ errors: {
   ]
 }
 ```
+
 **Custom Error**
 
 ```coffeescript
@@ -179,7 +180,7 @@ $('form').rvalidate
 
 ```coffeescript
 # Validate charcter length of exactly 5
-# I used "iz" becuase "is" highlights in CoffeeScript :P
+# I used "iz" becuase "is" highlights in  :P
 $('form').rvalidate
   'input[name=foo]':
     length:
@@ -216,9 +217,36 @@ $('form').rvalidate
             
 ```
 
-Simple, and out of your way.
+**custom_regex**
 
-![Tests](http://i.imgur.com/9DKbU.png)
+Supports a custom regex if supplied.
+
+```coffeescript
+$('form').rvalidate
+  'input[name=foo]':
+    custom_regex:
+      regex: /[A-Z]/
+    not_custom_regex: "Must contain a capital letter."
+            
+```
+
+**custom_fn**
+
+Supports a custom function for all other cases.
+
+```coffeescript
+$('form').rvalidate
+  'input[name=foo]':
+    custom_fn:
+      fn: (value) ->
+    valid = some_validation(value) # perform some validation
+    return false if !valid
+    return true
+    not_custom_fn: "Did not pass custom function."
+            
+```
+
+Simple, and out of your way!
 
 [@himrc](http://twitter.com/himrc)
 ===
