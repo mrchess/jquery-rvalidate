@@ -1,5 +1,5 @@
 ###
-jQuery rValidator Plugin 0.0.2
+jQuery rValidator Plugin 0.0.4
 http://github.com/mrchess/jquery-rvalidate
 Copyright (c) 2012 Justin Ho
 This is free. Do whatever.
@@ -47,21 +47,23 @@ $.fn.rvalidate = (config) ->
       # validates numericality
       numericality = validations.numericality
       if numericality
-        if val.match(/\D/) or !val.length
+        temp_val = val.replace(',' , '') # remove commas for digits
+
+        if temp_val.match(/\D/) or !temp_val.length
           errors.push(numericality.not_a_number || error_defaults.not_a_number)
         else
           # equal to
-          if numericality.equal_to
-            if parseInt(val) != numericality.equal_to
+          if numericality.equal_to != undefined
+            if parseInt(temp_val) != numericality.equal_to
               errors.push(numericality.not_equal_to || error_defaults.not_equal_to)            
           # greater than
-          if numericality.greater_than
-            if parseInt(val) <= numericality.greater_than
+          if numericality.greater_than != undefined
+            if parseInt(temp_val) <= numericality.greater_than
               errors.push(numericality.not_greater_than || error_defaults.not_greater_than)
 
           # less than
-          if numericality.less_than
-            if parseInt(val) >= numericality.less_than
+          if numericality.less_than != undefined
+            if parseInt(temp_val) >= numericality.less_than
               errors.push(numericality.not_less_than || error_defaults.not_less_than)
 
       # validates email

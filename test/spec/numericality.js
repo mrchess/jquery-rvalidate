@@ -127,4 +127,30 @@ describe("numericality", function() {
     valid = form.rvalidate();
     expect(valid).toBeTruthy();
   });    
+
+  it("should validate greater than 0", function() {
+    form.rvalidate({
+      'input[name=test]': {
+        numericality: {
+          greater_than: 0
+        }
+      }
+    })
+    input.val('0')
+    valid = form.rvalidate();
+    expect(valid.length).toEqual(1);
+  });  
+
+  it("should not validate less than 0", function() {
+    form.rvalidate({
+      'input[name=test]': {
+        numericality: {
+          less_than: 0
+        }
+      }
+    })
+    input.val('-1')
+    valid = form.rvalidate();
+    expect(valid.length).toEqual(1);
+  });       
 });
