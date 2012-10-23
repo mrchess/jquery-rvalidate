@@ -141,7 +141,7 @@ describe("numericality", function() {
     expect(valid.length).toEqual(1);
   });  
 
-  it("should not validate less than 0", function() {
+  it("should validate less than 0", function() {
     form.rvalidate({
       'input[name=test]': {
         numericality: {
@@ -151,6 +151,29 @@ describe("numericality", function() {
     })
     input.val('-1')
     valid = form.rvalidate();
-    expect(valid.length).toEqual(1);
-  });       
+    expect(valid.length).toEqual(0);
+
+    input.val('1-1')
+    valid = form.rvalidate();
+    expect(valid.length).toEqual(1);    
+  });      
+
+  it("should validate decimals", function() {
+    form.rvalidate({
+      'input[name=test]': {
+        numericality: true
+      }
+    })
+    input.val('3.5')
+    valid = form.rvalidate();
+    expect(valid.length).toEqual(0);
+
+    input.val('.55')
+    valid = form.rvalidate();
+    expect(valid.length).toEqual(0);    
+
+    input.val('55.')
+    valid = form.rvalidate();
+    expect(valid.length).toEqual(0);        
+  });     
 });

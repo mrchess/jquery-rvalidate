@@ -31,7 +31,7 @@ This is free. Do whatever.
   };
 
   $.fn.rvalidate = function(config) {
-    var confirmInput, confirmation, custom_fn, custom_regex, el, email, errors, form, length, numericality, o, presence, selector, temp_val, val, valid, validations;
+    var cleaned, confirmInput, confirmation, custom_fn, custom_regex, el, email, errors, form, length, numericality, o, presence, selector, temp_val, val, valid, validations;
     if (config) {
       $(this).data('rvalidator', config);
       return true;
@@ -53,7 +53,12 @@ This is free. Do whatever.
         numericality = validations.numericality;
         if (numericality) {
           temp_val = val.replace(',', '');
-          if (temp_val.match(/\D/) || !temp_val.length) {
+          cleaned = val.replace(',', '');
+          cleaned = cleaned.replace('.', '');
+          cleaned = cleaned.replace('-', '');
+          if (cleaned.match(/\D/) || !cleaned.length) {
+            errors.push(numericality.not_a_number || error_defaults.not_a_number);
+          } else if (temp_val.indexOf('-') > 0) {
             errors.push(numericality.not_a_number || error_defaults.not_a_number);
           } else {
             if (numericality.equal_to !== void 0) {

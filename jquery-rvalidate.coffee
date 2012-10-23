@@ -49,7 +49,14 @@ $.fn.rvalidate = (config) ->
       if numericality
         temp_val = val.replace(',' , '') # remove commas for digits
 
-        if temp_val.match(/\D/) or !temp_val.length
+        # a copy of the val removing characters, ["-",","]
+        cleaned = val.replace(',', '') 
+        cleaned = cleaned.replace('.', '') 
+        cleaned = cleaned.replace('-', '') 
+
+        if cleaned.match(/\D/) or !cleaned.length
+          errors.push(numericality.not_a_number || error_defaults.not_a_number)
+        else if temp_val.indexOf('-') > 0 # test negaitve number
           errors.push(numericality.not_a_number || error_defaults.not_a_number)
         else
           # equal to
