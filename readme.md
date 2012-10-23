@@ -226,7 +226,7 @@ $('form').rvalidate
   'input[name=foo]':
     custom_regex:
       regex: /[A-Z]/
-    not_custom_regex: "Must contain a capital letter."
+      not_custom_regex: "Must contain a capital letter."
             
 ```
 
@@ -239,10 +239,10 @@ $('form').rvalidate
   'input[name=foo]':
     custom_fn:
       fn: (value) ->
-    valid = some_validation(value) # perform some validation
-    return false if !valid
-    return true
-    not_custom_fn: "Did not pass custom function."
+        valid = some_validation(value) # perform some validation
+        return false if !valid
+        return true
+      not_custom_fn: "Did not pass custom function."
             
 ```
 
