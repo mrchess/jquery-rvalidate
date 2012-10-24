@@ -50,9 +50,9 @@ $.fn.rvalidate = (config) ->
         temp_val = val.replace(',' , '') # remove commas for digits
 
         # a copy of the val removing characters, ["-",","]
-        cleaned = val.replace(',', '') 
-        cleaned = cleaned.replace('.', '') 
-        cleaned = cleaned.replace('-', '') 
+        cleaned = val.replace(/\,/g, '') 
+        cleaned = cleaned.replace(/\./g, '') 
+        cleaned = cleaned.replace(/\-/g, '') 
 
         if cleaned.match(/\D/) or !cleaned.length
           errors.push(numericality.not_a_number || error_defaults.not_a_number)

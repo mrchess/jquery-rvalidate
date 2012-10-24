@@ -176,4 +176,19 @@ describe("numericality", function() {
     valid = form.rvalidate();
     expect(valid.length).toEqual(0);        
   });     
+
+  it("should validate commas", function() {
+    form.rvalidate({
+      'input[name=test]': {
+        numericality: true
+      }
+    })
+    input.val('3,500')
+    valid = form.rvalidate();
+    expect(valid.length).toEqual(0);
+
+    input.val('5,000,000')
+    valid = form.rvalidate();
+    expect(valid.length).toEqual(0);        
+  });      
 });

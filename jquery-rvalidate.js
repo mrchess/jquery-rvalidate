@@ -53,9 +53,9 @@ This is free. Do whatever.
         numericality = validations.numericality;
         if (numericality) {
           temp_val = val.replace(',', '');
-          cleaned = val.replace(',', '');
-          cleaned = cleaned.replace('.', '');
-          cleaned = cleaned.replace('-', '');
+          cleaned = val.replace(/\,/g, '');
+          cleaned = cleaned.replace(/\./g, '');
+          cleaned = cleaned.replace(/\-/g, '');
           if (cleaned.match(/\D/) || !cleaned.length) {
             errors.push(numericality.not_a_number || error_defaults.not_a_number);
           } else if (temp_val.indexOf('-') > 0) {
