@@ -1,5 +1,5 @@
 ###
-jQuery rValidator Plugin 0.0.4
+jQuery rValidator Plugin 0.0.5
 http://github.com/mrchess/jquery-rvalidate
 Copyright (c) 2012 Justin Ho
 This is free. Do whatever.
@@ -47,7 +47,7 @@ $.fn.rvalidate = (config) ->
       # validates numericality
       numericality = validations.numericality
       if numericality
-        temp_val = val.replace(',' , '') # remove commas for digits
+        temp_val = val.replace(/\,/g , '') # remove commas for digits
 
         # a copy of the val removing characters, ["-",","]
         cleaned = val.replace(/\,/g, '') 

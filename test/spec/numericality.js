@@ -191,4 +191,17 @@ describe("numericality", function() {
     valid = form.rvalidate();
     expect(valid.length).toEqual(0);        
   });      
+  it("should validate with multiple commas", function() {
+    form.rvalidate({
+      'input[name=test]': {
+        numericality: {
+          less_than: 1000000
+        }
+      }
+    })
+
+    input.val('5,000,000')
+    valid = form.rvalidate();
+    expect(valid.length).toEqual(1);        
+  });        
 });
